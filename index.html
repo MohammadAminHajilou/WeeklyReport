@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Generator</title>
+    <title data-i18n="pageTitle">Report Generator</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
     <link rel="stylesheet" href="css/dark.css" id="themeStyle">
@@ -21,13 +21,13 @@
         <div class="headerGradient"></div>
     </header>
     <main>
-        <form action="results/index.html">
+        <form action="result.html">
             <input type="text" placeholder="Full Name" id="name" required data-i18n-placeholder="fulleNameText">
             <input type="text" placeholder="Coordinator" id="coordinator" required data-i18n-placeholder="coordinatorText"  >
             <div id="course">
                 <div data-i18n="courseText">Course</div>
                 <label>
-                    <input type="radio" name="options" value="web" onclick="selectCourse('web');"><span data-i18n="webText">Web</span>
+                    <input type="radio" name="options" value="web" onclick="selectCourse('web');" required><span data-i18n="webText">Web</span>
                 </label>
                 <label>
                     <input type="radio" name="options" value="csharp" onclick="selectCourse('csharp');"><span data-i18n="csharpText">C#</span>
@@ -36,7 +36,7 @@
                     <input type="radio" name="options" value="ml" onclick="selectCourse('ml');"><span data-i18n="mlText">Machine Learning</span> 
                 </label>
             </div>
-            <select class="step"><option disabled selected data-i18n="selectStepText">Select your step :</option><span id="step"></span></select>
+            <select class="step" required><option disabled selected data-i18n="selectStepText">Select your step :</option><span id="step"></span></select>
             <div class="satisfaction">
                 <div data-i18n="satisfactionText">Satisfaction (0-100)%</div>
 

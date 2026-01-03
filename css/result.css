@@ -20,34 +20,20 @@ body {
     padding: 0px;
 }
 
-#report , #report2 {
-    margin:50px auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
-#report , #report2 {
-    width: 600px;
-    padding: 20px;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
+#report  {
+    width: 297mm;
+    height: 210mm;
+    padding: 0px;
+    background-color: var(--background-color);
+    border: 2px solid var(--bold-text-color);
     font-family: Arial, sans-serif;
-    border-radius: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
   }
 
 
-#report2 {
-    background: linear-gradient(135deg , var(--second-color) , var(--third-color));
-}
-  a {
-    color: yellow;
-    text-decoration: underline;
-  }
 
 
   

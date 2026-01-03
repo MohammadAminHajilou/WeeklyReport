@@ -19,5 +19,7 @@
     "titleText": "عنوان",
     "taskText": "کار",
     "dateText": "تاریخ",
-    "linkText": "لینک"
+    "linkText": "لینک",
+    "pageTitle" : "گزارش ساز"
+
 }

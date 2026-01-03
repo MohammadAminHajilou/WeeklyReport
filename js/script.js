@@ -40,7 +40,7 @@ function selectCourse(course) {
     stepSelect.innerHTML = "";
     for (let i = 1; i <= courseSteps[course]; i++) {
         const option = document.createElement("option");
-        option.value = `Step ${i}`;
+        option.value = i;
         option.insertAdjacentHTML("beforeend", `<span data-i18n="stepText">${stepText}</span>`);
         option.insertAdjacentText("beforeend", ` ${i}`);
         stepSelect.appendChild(option);
@@ -314,8 +314,8 @@ function addPost() {
             <td><textarea readonly>${date}</textarea></td>
             <td>
                 <div onclick="editPost(${id})" class="postEdit">✏️</div>
+                <div onclick="submitPost(${id})" class="postSubmit">☑️</div>
                 <div onclick="deletePost(${id})" class="postRemove">❌</div>
-                <div onclick="submitPost(${id})" class="postSubmit"">☑️</div>
             </td>
         `
         table.appendChild(tr);
@@ -335,7 +335,6 @@ function addPost() {
 function editPost(id) {
     const tr = document.getElementById(`post${id}`);
     const textareas = tr.querySelectorAll("textarea");
-    const input = tr.querySelector("input");
 
     textareas.forEach(ta => {
         ta.readOnly = false;
@@ -343,28 +342,26 @@ function editPost(id) {
     textareas[0].focus();
     textareas[0].selectionStart = textareas[0].selectionEnd = textareas[0].value.length;
 
-    tr.querySelector("button:nth-child(1)").style.display = "none"; // edit
-    tr.querySelector("button:nth-child(3)").style.display = "inline"; // submit
+    tr.querySelector("div:nth-child(1)").style.display = "none"; 
+    tr.querySelector("div:nth-child(2)").style.display = "inline"; 
 }
 
 function submitPost(id) {
     const tr = document.getElementById(`post${id}`);
     const textareas = tr.querySelectorAll("textarea");
-    const input = tr.querySelector("input");
 
     posts[id] = {
         name: textareas[0].value,
         telegram: textareas[1].value,
         twitter: textareas[2].value,
         linkedin: textareas[3].value,
-        date: input.value
+        date: textareas[4].value
     };
 
     textareas.forEach(ta => ta.readOnly = true);
-    input.readOnly = true;
 
-    tr.querySelector("button:nth-child(1)").style.display = "inline"; 
-    tr.querySelector("button:nth-child(3)").style.display = "none";  
+    tr.querySelector("div:nth-child(1)").style.display = "inline"; 
+    tr.querySelector("div:nth-child(2)").style.display = "none";  
 }
 
 function deletePost(id) {
@@ -373,3 +370,40 @@ function deletePost(id) {
 }
 
 postAddBtn.addEventListener("click", addPost);
+
+
+
+document.getElementById("generate").addEventListener("click", (e) => {
+
+    e.preventDefault;
+
+    const name = document.getElementById("name").value.trim();
+    const coordinator = document.getElementById("coordinator").value.trim();
+    const course = document.querySelector('input[name="options"]:checked')?.value || null;
+    const step = document.getElementById("step").value;
+    const satisfaction = document.getElementById("satisfactionValue").value;
+    const hoursSpent = document.getElementById("hoursSpent").value;
+    const hoursCommitted = document.getElementById("hoursCommitted").value;
+    const reportNumber = document.getElementById("number").value;
+    const reportDate = document.getElementById("date").value;
+    const notesList = notes;
+    const postsArray = posts; 
+
+    const formData = {
+        name,
+        coordinator,
+        course,
+        step,
+        satisfaction,
+        hoursSpent,
+        hoursCommitted,
+        reportNumber,
+        reportDate,
+        notes: notesList,
+        posts: postsArray
+    };
+
+    localStorage.setItem("reportData", JSON.stringify(formData));
+    console.log(localStorage.getItem("reportData")); 
+
+});

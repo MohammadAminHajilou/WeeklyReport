@@ -20,5 +20,6 @@
     "titleText" : "Title",
     "taskText" : "Task",
     "dateText": "Date",
-    "linkText" : "Link"
+    "linkText" : "Link",
+    "pageTitle" : "Report Generator"
 }
