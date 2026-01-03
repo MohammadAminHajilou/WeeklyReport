@@ -1,0 +1,17 @@
+{
+    "fulleNameText": "Full Name",
+    "coordinatorText": "Coordinator",
+    "courseText": "Course",
+    "webText": "Web",
+    "csharpText": "C#",
+    "mlText": "Machine Learning",
+    "generateText": "Generate",
+    "satisfactionText": "Satisfaction (0-100)%",
+    "hoursSpentText": "Hours Spent",
+    "hoursCommittedText": "Hours Committed",
+    "selectStepText": "Select your step :",
+    "stepText": "Step",
+    "footerText": "© 2026 Created by Mohammad Amin Hajilou. All rights reserved.",
+    "notesText" : "Notes",
+    "writeNotesText" : "Write your note..."
+}

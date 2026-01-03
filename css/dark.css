@@ -1,0 +1,18 @@
+:root {
+    --background-color: #252525;
+    --header-footer-color: #181717;
+    --main-color: #303030;
+    --bold-text-color: #f1f1f1;
+    --normal-text-color: rgb(223, 222, 222);
+    --input-color: #423f3f;
+    --active-input-color : #2a292c;
+    --hover-input-color: #323133;
+    --first-color: rgb(0, 221, 192);
+    --second-color: #8e00b9;
+    --third-color: #ff004c;
+    --fourth-color: #00ff73;
+    --fifth-color : rgb(251, 255, 0);
+    --sixth-color : rgb(57, 0, 189);
+    --box-shadow: 0px 4px 10px rgba(0,0,0.3);
+    --box-shadow-hover: 0px 4px 10px rgba(0,0,0.5);
+}

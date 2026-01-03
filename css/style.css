@@ -1,0 +1,639 @@
+/*
+:root {
+    --background-color
+    --header-footer-color
+    --main-color
+    --bold-text-color
+    --normal-text-color
+    --input-color: #423f3f
+    --active-input-color-
+    --first-color:
+    --second-color:
+    --box-shadow
+    --box-shadow-hover
+
+*/
+
+
+
+*, *::before, *::after {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+html {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: transparent;
+  scrollbar-width: thin;  
+  scrollbar-color: var(--first-color) var(--header-footer-color);
+}
+
+
+input:hover , button:hover , #course label:hover , select:hover , .language:hover , #themeButton:hover , .logoContainer:hover , #noteAdd:hover , .noteEdit:hover , .noteRemove:hover , .noteSubmit:hover , #notesContainer:hover , #postsContainer:hover ,  #postAdd:hover , .postEdit:hover , .postRemove:hover , .postSubmit:hover{
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--header-footer-color);
+}
+
+.headerContainer {
+    display: grid;
+    grid-template-columns: 90% auto auto;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px 50px;
+    z-index: 100;
+}
+.logo {
+    max-width: 100px;
+    margin-right: auto;
+}
+
+.logoContainer {
+    cursor: pointer;
+    padding: 0px 10px;
+    margin-right: auto;
+    color: var(--normal-text-color);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.headerContainer label img , #themeButton  {
+    max-width: 40px;
+    max-height: 40px;
+    margin: 10px;
+    cursor: pointer;
+}
+.language {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--normal-text-color);
+}
+
+.selectedLang {
+    color: var(--bold-text-color);
+    font-weight: bold;
+
+}
+
+header select {
+    display: none;
+}
+
+
+footer {
+    text-align: center;
+    background-color: var(--header-footer-color);
+    width: 100%;
+    padding: 0px 0px 25px 0px;
+    color: var(--bold-text-color) ;
+}
+
+
+.footerGradient , .headerGradient {
+    width: 100%;
+    height: 35px;
+    pointer-events: none;
+}
+
+.footerGradient {background: linear-gradient(to top, var(--header-footer-color), var(--background-color));}
+
+
+
+.headerGradient {background: linear-gradient(to bottom, var(--header-footer-color), var(--background-color));
+z-index: 10;}
+
+
+
+main {
+    width: 95%;
+    max-width: 1200px;
+    background-color: var(--main-color);
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgb(142, 0, 185,0.6);
+}
+
+form {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--normal-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0px;
+    margin: 10px auto;
+}
+
+form input , form select , form button , form option , #course label {
+    border-radius: 10px;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    outline: none;
+    color: var(--normal-text-color);
+    background-color: var(--input-color);
+    box-shadow: 0px 4px 10px rgb(0, 221, 192 , 0.6);
+}
+
+form input {
+    padding: 10px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+form input[type="radio"] {
+    width: auto;
+    box-shadow: none;
+}
+form input[type="range"] {
+    box-shadow: none;
+}
+#course {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: auto auto auto;  
+    align-items: center;
+    margin: 20px auto;
+}
+
+#course div {
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+    font-size: 1.6rem;
+    grid-column: 1 / span 3; 
+    grid-row: 1; 
+}
+
+#course label {
+    cursor: pointer;
+    width: auto;
+    margin: 0px 5px;
+
+}
+
+
+
+
+.satisfaction {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto auto;
+    gap: 5px;
+    align-items: center;
+    margin: 25px auto;
+}
+.satisfaction div {
+    width: 100%;
+}
+#satisfactionValue {
+    text-align: center;
+    margin-left: auto;
+    grid-column: 2; 
+    grid-row: 1;   
+    max-width: 80px;
+    box-shadow: 0px 4px 10px rgb(0, 255, 115,0.7);
+
+}
+
+#satisfactionRange {
+    grid-column: 1 / span 2; 
+    grid-row: 2; 
+    justify-self: stretch; 
+}
+
+
+
+.hours , .datenumber {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.hours div , .datenumber div {
+    gap: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.hours input , .datenumber input {
+    max-width: 80px;
+    box-shadow: 0px 4px 10px rgba(255, 3, 141, 0.7);;
+}
+
+#date  {
+    max-width: 150px;
+}
+#generate {
+    width: 80%;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    color: var(--first-color);
+    margin: 75px auto 10px auto;
+    background-image: linear-gradient(to right , var(--active-input-color), var(--second-color),var(--second-color) , var(--active-input-color));
+    
+}
+
+
+
+
+
+
+
+
+
+
+/* مخفی کردن رادیو */
+#course input[type="radio"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--bold-text-color);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+/* دایره داخلی */
+#course input[type="radio"]::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: transparent;
+}
+
+/* حالت انتخاب */
+#course input[type="radio"]:checked {
+    border-color: var(--second-color);
+    background-color: var(--active-input-color);
+}
+
+#course input[type="radio"]:checked::before {
+    border-color: var(--second-color);
+    background-color: var(--second-color);
+
+}
+
+/* افکت انتخاب روی لیبل */
+#course label:has(input:checked) {
+    background: var(--active-input-color);
+    border-color: var(--second-color);
+}
+
+.satisfaction {
+    display: grid;
+    gap: 10px;
+}
+
+/* range پایه */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, var(--third-color) , var(--second-color) , var(--sixth-color) , var(--first-color) , var(--fourth-color));
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+/* thumb کروم */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--second-color);
+    border-radius: 50%;
+    border: 2px solid var(--bold-text-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* thumb فایرفاکس */
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--second-color);
+    border-radius: 50%;
+    border: none;
+}
+
+
+
+
+#step {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1.3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--bold-text-color) 50%),
+        linear-gradient(135deg, var(--bold-text-color) 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) calc(50% - 3px),
+        calc(100% - 12px) calc(50% - 3px);
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+}
+
+
+#step option {
+    background-color: var(--active-input-color);
+    border-radius: 10px;
+}
+
+#step option[disabled] {
+    color: var(--normal-text-color);
+}
+
+
+form hr {
+    width: 100%;
+    height: 5px;
+    margin: 20px auto;
+    border: none;
+    padding: 0px;
+    border-radius: 25px;
+    background-image: linear-gradient(to right , var(--main-color) , var(--second-color) , var(--main-color) );
+}
+
+
+
+
+#notesContainer , #postsContainer {
+    background-color: var(--input-color);
+    box-shadow: 0px 4px 10px rgb(251, 255, 0 , 0.5);
+    border-radius: 15px;
+    width: 100%;
+    height: 100;
+}
+
+#postsContainer {
+    box-shadow: 0px 4px 10px rgba(255, 115, 0, 0.6);
+}
+
+.noteTitle , .postTitle{
+    font-size: 1.7rem;
+    border-radius: 15px 15px 0px 0px;
+    padding: 15px;
+    text-align: center;
+    color: var(--bold-text-color);
+    background-color: var(--active-input-color);
+}
+
+.noteWrite {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 10px auto;
+    padding-bottom: 20px;
+    border-bottom: 0px none rgb(0, 0, 0);
+}
+#noteInput , #noteAdd {
+    box-shadow: none;
+    border-radius: 0;
+}
+
+#noteInput , #postName , #postTelegram , #postLinkedin , #postTwitter {
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    resize: vertical;
+    max-height: 100px;
+    color: var(--normal-text-color);
+    padding: 5px;
+    background-color: var(--input-color);
+    width: 100%;
+    outline: none;
+    border: none;
+    resize: none;
+}
+
+#postDate , #postsTable input {
+    box-shadow: none;
+}
+#postDate:hover , #postsTable input {
+transform: none;
+}
+
+#noteAdd , .noteEdit , .noteRemove , .noteSubmit , #postAdd , .postEdit , .postRemove , .postSubmit{
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    max-width: 50px;
+    padding: 5px;
+    margin: 5px;
+    float: right;
+}
+#noteAdd , #postAdd{
+    font-size: 1.5rem;
+    background-color: var(--fourth-color);
+}
+.noteEdit , .postEdit{
+    align-self: flex-start;
+    font-size: 1.2rem;
+    background-color: var(--fifth-color);
+}
+.noteRemove , .postRemove{
+    align-self: flex-start;
+    font-size: 1.2rem;
+    background-color: var(--third-color);
+}
+.noteSubmit , .postSubmit {
+    align-self: flex-start;
+    font-size: 1.2rem;
+    background-color: var(--second-color);
+    display: none;
+}
+
+.noteText , #postsTable textarea{
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 0px 10px 10px 0px;
+    color: var(--normal-text-color);
+    padding: 10px;
+    background-color: var(--input-color);
+    width: 80%;
+    outline: none;
+    border: none;
+    resize: none;
+    text-align: justify;
+    float: left;
+    min-height: 100px;       
+}
+
+.noteText:focus , #postsTable textarea:focus , #postsTable input:focus {
+    background-color: var(--hover-input-color);
+}
+
+
+.note{
+    display: flex;
+    border-bottom: 1px solid var(--fourth-color);
+    width: 100%;
+    margin: 10px auto;
+    gap: 5px;
+}
+.note:last-of-type {
+    border-bottom: none;
+}
+
+.noteText::-webkit-scrollbar , #noteInput::-webkit-scrollbar{
+    display: none;      
+}
+
+
+
+
+
+
+
+#postsContainer img {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+#postsContainer {
+    width: 100%;
+    max-width: 600px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#postsTable {
+    width: auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#postsTable th, #postsTable td {
+    height: 100%;
+    text-align: center;  
+    vertical-align: middle;
+    word-wrap: break-word; 
+}
+#postsTable tr {
+
+    border-bottom: 2px solid var(--fourth-color);
+}
+
+#postsTable tr:first-of-type {
+    border-bottom: 4px solid var(--first-color);
+}
+
+#postsTable tr:last-of-type {
+    border-bottom: none;
+}
+
+
+#postsTable th {
+    width: 100%;
+    background-color: var(--active-input-color);
+}
+
+
+#postsTable textarea, #postsTable input {
+    font-size: 0.95rem;
+    border-radius: 4px;
+    resize: none;
+    margin: auto;
+    text-align: center;
+}
+
+
+
+#postInputRow td:first-of-type textarea {
+    width: 100%;
+}
+#postsTable input {
+    width: 100%;
+    text-align: center;
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+
+}
+
+@keyframes fadeGradient {
+    0% {transform: translateY(-15px); opacity: 0;}
+    50% {opacity: 1;}
+    100% {transform: translateY(0px);}
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+td {
+    display: none;
+}

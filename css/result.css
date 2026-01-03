@@ -1,0 +1,53 @@
+:root {
+    --background-color: #ffffff;
+    --header-footer-color: #f1f1f1;
+    --main-color: #eaeaea;
+    --bold-text-color: #000000;
+    --normal-text-color: #333333;
+    --input-color: #ffffff;
+    --active-input-color: #f0f0f0;
+    --first-color: #00ddc0;
+    --second-color: rgb(142, 0, 185);
+    --third-color: rgb(255, 0, 76);
+    --fourth-color: rgb(0, 255, 115);
+    --fifth-color : rgb(251, 255, 0);
+    --sixth-color : rgb(57, 0, 189);
+}
+
+body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#report , #report2 {
+    margin:50px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#report , #report2 {
+    width: 600px;
+    padding: 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    font-family: Arial, sans-serif;
+    border-radius: 10px;
+  }
+
+
+#report2 {
+    background: linear-gradient(135deg , var(--second-color) , var(--third-color));
+}
+  a {
+    color: yellow;
+    text-decoration: underline;
+  }
+
+
+  
