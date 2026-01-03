@@ -8,14 +8,17 @@ function changeTheme() {
     body.style.animation = 'fadeOut 0.1s forwards';
 
     setTimeout(() => {
-        button.src = button.src.includes('dark.svg') ? 'images/icons/light.svg' : 'images/icons/dark.svg';
+        const isDark = button.src.includes('dark.svg'); 
+        button.src = isDark ? 'images/icons/light.svg' : 'images/icons/dark.svg';
         lang.src = lang.src.includes('dark.svg') ? 'images/icons/langlight.svg' : 'images/icons/langdark.svg';
         style.href = style.href.includes('dark.css') ? 'css/light.css' : 'css/dark.css';
-        setTimeout ( () => {
-        body.style.animation = 'fadeIn 0.1s forwards';
-        gradient.style.animation = 'fadeGradient 1s forwards';
-        }
-        , 100);
+
+        localStorage.setItem('theme', style.href.includes('dark.css') ? 'dark' : 'light');
+
+        setTimeout(() => {
+            body.style.animation = 'fadeIn 0.1s forwards';
+            gradient.style.animation = 'fadeGradient 1s forwards';
+        }, 100);
         gradient.style.animation = 'none';
 
     }, 100);
@@ -23,34 +26,78 @@ function changeTheme() {
 
 
 
+
 function selectCourse(course) {
-    const translations = {
-    selectStepText: "Select your step :",
-    stepText: "Step"
-};
+
 
     const stepSelect = document.getElementById("step");
-
     const courseSteps = {
         web: 10,
         csharp: 11,
         ml: 12
     };
-
+    const stepText = currentLang == "en" ? "Step" : "مرحله";
     stepSelect.innerHTML = "";
-
-    const defaultOption = document.createElement("option");
-    defaultOption.disabled = true;
-    defaultOption.selected = true;
-    defaultOption.textContent = translations.selectStepText;
-    stepSelect.appendChild(defaultOption);
-
     for (let i = 1; i <= courseSteps[course]; i++) {
         const option = document.createElement("option");
-        option.value = `${course}${i}`;
-        option.textContent = `${translations.stepText} ${i}`;
+        option.value = `Step ${i}`;
+        option.insertAdjacentHTML("beforeend", `<span data-i18n="stepText">${stepText}</span>`);
+        option.insertAdjacentText("beforeend", ` ${i}`);
         stepSelect.appendChild(option);
     }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const style = document.getElementById('themeStyle');
+    const button = document.getElementById('themeButton');
+    const lang = document.getElementById('language');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        style.href = savedTheme === 'dark' ? 'css/dark.css' : 'css/light.css';
+        button.src = savedTheme === 'dark' ? 'images/icons/dark.svg' : 'images/icons/light.svg';
+        lang.src = savedTheme === 'dark' ? 'images/icons/langdark.svg' : 'images/icons/langlight.svg';
+    }
+});
+
+
+
+
+
+
+
+
+let currentLang = localStorage.getItem("lang") || "en";
+
+const fontStyle = document.getElementById("font");
+let fontCSS = localStorage.getItem("font") || '* { font-family: Arial, "B Koodak";';
+
+applyLanguage(currentLang , fontCSS);
+updateLangUI(currentLang);
+
+async function applyLanguage(lang , font) {
+    const res = await fetch(`json/languages/${lang}.json`);
+    const data = await res.json();
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (data[key]) el.textContent = data[key];
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        if (data[key]) el.placeholder = data[key];
+    });
+
+    fontStyle.innerHTML = font;
+
+
+}
+
+
+function updateLangUI(lang) {
+    document.getElementById("en").classList.toggle("selectedLang", lang === "en");
+    document.getElementById("fa").classList.toggle("selectedLang", lang === "fa");
 }
 
 
@@ -60,6 +107,17 @@ function changeLanguage() {
 
     en.classList.toggle("selectedLang");
     fa.classList.toggle("selectedLang");
+
+    currentLang = currentLang === "en" ? "fa" : "en";
+    const fontCSS = currentLang === "en" 
+        ? '* { font-family: Arial, "B Koodak"; }' 
+        : '* { font-family: "B Koodak", Arial; }';
+
+    fontStyle.innerHTML = fontCSS;
+    localStorage.setItem("font", fontCSS);
+    localStorage.setItem("lang", currentLang);
+    applyLanguage(currentLang , fontCSS);
+    updateLangUI(currentLang);
 }
 
 
@@ -93,9 +151,12 @@ function addNote() {
     noteDiv.id = `note${id}`;
     noteDiv.innerHTML = `
         <textarea class="noteText" readonly id="noteText${id}">- ${value}</textarea>
-        <div class="noteEdit" onclick="noteEdit(${id})">✏️</div>
-        <div class="noteSubmit" onclick="noteSubmit(${id})" style="display:none;">☑️</div>
-        <div class="noteRemove" onclick="noteRemove(${id})">❌</div>
+        <div class="noteButtons">
+            <div class="noteEdit" onclick="noteEdit(${id})">✏️</div>
+            <div class="noteSubmit" onclick="noteSubmit(${id})" style="display:none;">☑️</div>
+            <div class="noteRemove" onclick="noteRemove(${id})">❌</div>
+        </div>
+
     `;
 
     notesContainer.appendChild(noteDiv);
@@ -227,7 +288,6 @@ satisfaction.addEventListener("input" ,() => {
 const postsContainer = document.getElementById("postsContainer");
 const postAddBtn = document.getElementById("postAdd");
 
-// key-value store
 let posts = {};
 let nextPostId = 0;
 
@@ -238,7 +298,7 @@ function addPost() {
     const linkedin = document.getElementById("postLinkedin").value.trim();
     const date = document.getElementById("postDate").value.trim();
 
-    if ((name && date)&&(telegram || twitter || linkedin)) {
+    if ((name && date)&&(telegram || twitter || linkedin)&&(date.length = 10)) {
         const id = nextPostId++;
         posts[id] = { name, telegram, twitter, linkedin, date };
 
@@ -251,7 +311,7 @@ function addPost() {
             <td><textarea readonly>${telegram}</textarea></td>
             <td><textarea readonly>${twitter}</textarea></td>
             <td><textarea readonly>${linkedin}</textarea></td>
-            <td><input type="text" value="${date}" readonly></td>
+            <td><textarea readonly>${date}</textarea></td>
             <td>
                 <div onclick="editPost(${id})" class="postEdit">✏️</div>
                 <div onclick="deletePost(${id})" class="postRemove">❌</div>
@@ -279,9 +339,9 @@ function editPost(id) {
 
     textareas.forEach(ta => {
         ta.readOnly = false;
-        ta.focus();
     });
-    input.readOnly = false;
+    textareas[0].focus();
+    textareas[0].selectionStart = textareas[0].selectionEnd = textareas[0].value.length;
 
     tr.querySelector("button:nth-child(1)").style.display = "none"; // edit
     tr.querySelector("button:nth-child(3)").style.display = "inline"; // submit
@@ -292,7 +352,6 @@ function submitPost(id) {
     const textareas = tr.querySelectorAll("textarea");
     const input = tr.querySelector("input");
 
-    // update key-value
     posts[id] = {
         name: textareas[0].value,
         telegram: textareas[1].value,

@@ -10,8 +10,15 @@
     "hoursSpentText": "Hours Spent",
     "hoursCommittedText": "Hours Committed",
     "selectStepText": "Select your step :",
+    "reportNumberText": "Report Number",
+    "reportDateText": "Report Date",
     "stepText": "Step",
     "footerText": "© 2026 Created by Mohammad Amin Hajilou. All rights reserved.",
     "notesText" : "Notes",
-    "writeNotesText" : "Write your note..."
+    "writeNotesText" : "Write your note...",
+    "postsText" : "Posts",
+    "titleText" : "Title",
+    "taskText" : "Task",
+    "dateText": "Date",
+    "linkText" : "Link"
 }

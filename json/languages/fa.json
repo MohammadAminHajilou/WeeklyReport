@@ -1,0 +1,23 @@
+{
+    "fulleNameText": "نام کامل",
+    "coordinatorText": "کوردینیتور",
+    "courseText": "دوره",
+    "webText": "وب",
+    "csharpText": "C#",
+    "mlText": "یادگیری ماشین",
+    "generateText": "ساخت گزارش",
+    "satisfactionText": "رضایت (0-100)%",
+    "hoursSpentText": "ساعات فعالیت",
+    "hoursCommittedText": "ساعات تعهد",
+    "selectStepText": "مرحله خود را انتخاب کنید :",
+    "reportNumberText": "شماره گزارش",
+    "reportDateText": "تاریخ گزارش",
+    "stepText": "مرحله",
+    "footerText" :  "©  ۱۴۰۴ - ساخته شده توسط محمدامین حاجیلو - تمام حقوق محفوظ است " ,    "notesText": "یادداشت‌ها",
+    "writeNotesText": "یادداشت خود را بنویسید...",
+    "postsText": "پست‌ها",
+    "titleText": "عنوان",
+    "taskText": "کار",
+    "dateText": "تاریخ",
+    "linkText": "لینک"
+}

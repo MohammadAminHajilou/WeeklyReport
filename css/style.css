@@ -1,18 +1,4 @@
-/*
-:root {
-    --background-color
-    --header-footer-color
-    --main-color
-    --bold-text-color
-    --normal-text-color
-    --input-color: #423f3f
-    --active-input-color-
-    --first-color:
-    --second-color:
-    --box-shadow
-    --box-shadow-hover
 
-*/
 
 
 
@@ -33,6 +19,18 @@ html {
 }
 
 
+@font-face {
+    font-family: "B Koodak";
+    src: url("../fonts/B Koodak.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
 input:hover , button:hover , #course label:hover , select:hover , .language:hover , #themeButton:hover , .logoContainer:hover , #noteAdd:hover , .noteEdit:hover , .noteRemove:hover , .noteSubmit:hover , #notesContainer:hover , #postsContainer:hover ,  #postAdd:hover , .postEdit:hover , .postRemove:hover , .postSubmit:hover{
     transform: translateY(-2px);
 }
@@ -49,6 +47,14 @@ body {
     margin: 0;
     padding: 0;
 }
+
+
+
+
+
+
+
+
 header {
     width: 100%;
     display: flex;
@@ -129,7 +135,7 @@ footer {
 
 
 .headerGradient {background: linear-gradient(to bottom, var(--header-footer-color), var(--background-color));
-z-index: 10;}
+z-index: 10; animation: fadeGradient 1s forwards;}
 
 
 
@@ -362,7 +368,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 
-#step {
+.step {
     width: 100%;
     padding: 10px 14px;
     font-size: 1.3rem;
@@ -382,12 +388,12 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-#step option {
+.step option {
     background-color: var(--active-input-color);
     border-radius: 10px;
 }
 
-#step option[disabled] {
+.step option[disabled] {
     color: var(--normal-text-color);
 }
 
@@ -410,7 +416,6 @@ form hr {
     box-shadow: 0px 4px 10px rgb(251, 255, 0 , 0.5);
     border-radius: 15px;
     width: 100%;
-    height: 100;
 }
 
 #postsContainer {
@@ -427,80 +432,93 @@ form hr {
 }
 
 .noteWrite {
+    background-color: var(--active-input-color);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    margin: 10px auto;
-    padding-bottom: 20px;
     border-bottom: 0px none rgb(0, 0, 0);
 }
-#noteInput , #noteAdd {
-    box-shadow: none;
-    border-radius: 0;
+
+.noteButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-left: auto;
 }
 
-#noteInput , #postName , #postTelegram , #postLinkedin , #postTwitter {
+#noteInput  {
     font-size: 1.1rem;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 10px;
     resize: vertical;
     max-height: 100px;
+    background-color: transparent;
     color: var(--normal-text-color);
-    padding: 5px;
-    background-color: var(--input-color);
+    padding: 10px;
     width: 100%;
+    height: 150px;
     outline: none;
     border: none;
     resize: none;
 }
 
 #postDate , #postsTable input {
+    padding: 0px;
+    background-color: transparent;
     box-shadow: none;
 }
+
 #postDate:hover , #postsTable input {
 transform: none;
 }
 
 #noteAdd , .noteEdit , .noteRemove , .noteSubmit , #postAdd , .postEdit , .postRemove , .postSubmit{
-    position: relative;
     cursor: pointer;
     border-radius: 10px;
-    max-width: 50px;
-    padding: 5px;
-    margin: 5px;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 3px;
     float: right;
 }
 #noteAdd , #postAdd{
+    margin-right: 4px;
     font-size: 1.5rem;
     background-color: var(--fourth-color);
 }
+
+#postAdd {
+    font-size: 1.3rem;
+}
 .noteEdit , .postEdit{
+    margin: 4px;
+    margin-left: auto;
     align-self: flex-start;
     font-size: 1.2rem;
     background-color: var(--fifth-color);
 }
 .noteRemove , .postRemove{
+    margin: 4px;
     align-self: flex-start;
     font-size: 1.2rem;
     background-color: var(--third-color);
 }
 .noteSubmit , .postSubmit {
+    margin: 4px;
     align-self: flex-start;
     font-size: 1.2rem;
     background-color: var(--second-color);
     display: none;
 }
 
-.noteText , #postsTable textarea{
+.noteText {
     font-size: 1.1rem;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0px;
     color: var(--normal-text-color);
     padding: 10px;
     background-color: var(--input-color);
-    width: 80%;
+    width: 100%;
     outline: none;
     border: none;
     resize: none;
@@ -508,21 +526,42 @@ transform: none;
     float: left;
     min-height: 100px;       
 }
-
-.noteText:focus , #postsTable textarea:focus , #postsTable input:focus {
-    background-color: var(--hover-input-color);
+#postsTable textarea{
+    color: var(--normal-text-color);
+    background-color: transparent;
+    width: 100%;
+    height: 80px;
+    padding: 20px 0px;
+    outline: none;
+    border: none;
+    resize: none;
+    text-align: justify;
 }
+
+.noteText,
+#postsTable textarea{
+    background-color: var(--active-input-color);
+}
+
+.noteText:read-only,
+#postsTable textarea:read-only{
+    background-color: var(--input-color);
+}
+
 
 
 .note{
     display: flex;
     border-bottom: 1px solid var(--fourth-color);
     width: 100%;
-    margin: 10px auto;
     gap: 5px;
 }
 .note:last-of-type {
     border-bottom: none;
+}
+
+.note:last-of-type .noteText {
+    border-radius: 0px 0px 0px 10px;
 }
 
 .noteText::-webkit-scrollbar , #noteInput::-webkit-scrollbar{
@@ -547,19 +586,19 @@ transform: none;
 }
 
 #postsTable {
-    width: auto;
     border-collapse: collapse;
     table-layout: fixed;
 }
 
 #postsTable th, #postsTable td {
-    height: 100%;
     text-align: center;  
     vertical-align: middle;
     word-wrap: break-word; 
 }
-#postsTable tr {
 
+
+
+#postsTable tr {
     border-bottom: 2px solid var(--fourth-color);
 }
 
@@ -573,7 +612,6 @@ transform: none;
 
 
 #postsTable th {
-    width: 100%;
     background-color: var(--active-input-color);
 }
 
@@ -588,14 +626,44 @@ transform: none;
 
 
 
-#postInputRow td:first-of-type textarea {
-    width: 100%;
-}
+
+
 #postsTable input {
     width: 100%;
     text-align: center;
 
 }
+
+
+
+
+
+#postInputRow {
+    background-color: var(--active-input-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @keyframes fadeIn {
     from {
@@ -632,8 +700,4 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
-}
-
-td {
-    display: none;
 }
