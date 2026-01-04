@@ -1,17 +1,9 @@
 :root {
-    --background-color: #ffffff;
-    --header-footer-color: #f1f1f1;
-    --main-color: #eaeaea;
-    --bold-text-color: #000000;
-    --normal-text-color: #333333;
-    --input-color: #ffffff;
-    --active-input-color: #f0f0f0;
-    --first-color: #00ddc0;
-    --second-color: rgb(142, 0, 185);
-    --third-color: rgb(255, 0, 76);
-    --fourth-color: rgb(0, 255, 115);
-    --fifth-color : rgb(251, 255, 0);
-    --sixth-color : rgb(57, 0, 189);
+    --sat-0: #ff0033;      /* خیلی بد */
+    --sat-25: #9900ff;     /* ضعیف */
+    --sat-50: #0051ff;    /* متوسط */
+    --sat-75: #00ffc8;  /* خوب */
+    --sat-100: #00ff62;   /* عالی */
 }
 
 body {
@@ -20,20 +12,249 @@ body {
     padding: 0px;
 }
 
+* {
+  box-sizing: border-box;
+}
 
 #report  {
-    width: 297mm;
-    height: 210mm;
+    margin:0px auto;
+    width: 290mm;
+    height: 205mm;
     padding: 0px;
-    background-color: var(--background-color);
-    border: 2px solid var(--bold-text-color);
+    border: 2px solid rgb(20, 20, 20);
     font-family: Arial, sans-serif;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
   }
 
+.reportLeft , .reportRight {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
 
-
-
+.reportLeft {width: 40%;}
   
+.reportRight {width: 60%;}
+
+
+hr {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  width: 1px;
+  height: 100%;
+  background: black;
+}
+
+
+.rightNotesTitle {
+  font-weight: bold;
+  width: 100%;
+  height: 5%;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+}
+
+.rightNotes {
+  padding: 20px;
+  font-size: 1.2rem;
+  flex-direction: column;
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  height: 87.5%;
+  text-align: justify;
+}
+
+.rightLogos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px auto;
+  width: 95%;
+  height: 7.5%;
+}
+img {
+  max-width: 70px;
+}
+
+.rightLogos div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+}
+.rightLogos div img {
+  max-width: 40px;
+}
+.rightLogos div a {
+  color: #570096;
+}
+
+
+.leftTop {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  margin: 0px auto;
+  height: 5%;
+  color: rgb(82, 82, 82);
+}
+.leftTop span:last-of-type {
+  font-size: 0.8rem;
+  color: rgb(32, 32, 32);
+  font-weight: bold;
+}
+.leftTitle {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 7.5%;
+  font-size: 1.3rem;
+}
+
+.leftNames{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  width: 100%;
+  height: 5%;
+}
+
+.leftNames div {
+  width: 50%;
+  padding: 5px;
+  text-align: center;
+
+}
+
+.leftNames div span:last-child {
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.leftGradients {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+  height: 10%;
+  font-size: 0.8rem;
+}
+.gradientText{
+  grid-column: 1 / span 2; 
+  grid-row: 1; 
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+}
+.gradientText div:last-of-type{
+  font-weight: bold;
+  font-size: 1rem;
+}
+.satisfaction , .hours  {
+  width: 90%;
+  margin: 0px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: auto auto;
+  align-items: center;
+}
+
+.gradient {
+  grid-column: 1 / span 2; 
+  grid-row: 2; 
+  opacity: 1;
+background: linear-gradient(
+        to right,
+        var(--sat-0) 10%,
+        var(--sat-25) 25%,
+        var(--sat-50) 40%,
+        var(--sat-75) 70%,
+        var(--sat-100) 90%
+    );
+  border-radius: 15px;
+  width: 100%;
+  height: 30px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  overflow: hidden;
+  display: flex;
+}
+
+.hours .gradientText div:last-of-type {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  letter-spacing: 0;
+  font-size: 0.8rem;
+}
+.gradientCover {
+  height: 30px;
+  width: 0%;
+  margin-left: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.leftTable {
+  width: 100%;
+  height: 72.5%;
+  display: flex;
+  padding-top: 10px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+  box-sizing: 0px 4px 10px rgba(0,0,0,0.2);
+
+}
+
+table img {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+td {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  font-size: 1.1rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.4) ;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4) ;
+}
+thead td {
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+tbody td:first-of-type {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+tbody td:last-of-type {
+  font-size: 1rem;
+  font-weight: bold;
+  border-right: none;
+}
+
+a {
+  color: rgb(12, 100, 0);
+}

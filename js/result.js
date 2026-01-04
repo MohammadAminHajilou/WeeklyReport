@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/*
 
     const report = document.getElementById("report");
     const reportName = `aa`;
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
     });
 
-*/
 
 
 
