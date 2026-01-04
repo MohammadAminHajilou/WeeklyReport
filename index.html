@@ -27,16 +27,16 @@
             <div id="course">
                 <div data-i18n="courseText">Course</div>
                 <label>
-                    <input type="radio" name="options" value="web" onclick="selectCourse('web');" required><span data-i18n="webText">Web</span>
+                    <input type="radio" name="options" value="Web" onclick="selectCourse('web');" required><span data-i18n="webText">Web</span>
                 </label>
                 <label>
-                    <input type="radio" name="options" value="csharp" onclick="selectCourse('csharp');"><span data-i18n="csharpText">C#</span>
+                    <input type="radio" name="options" value="C#" onclick="selectCourse('csharp');"><span data-i18n="csharpText">C#</span>
                 </label>
                 <label>
-                    <input type="radio" name="options" value="ml" onclick="selectCourse('ml');"><span data-i18n="mlText">Machine Learning</span> 
+                    <input type="radio" name="options" value="Machine Learning" onclick="selectCourse('ml');"><span data-i18n="mlText">Machine Learning</span> 
                 </label>
             </div>
-            <select class="step" required><option disabled selected data-i18n="selectStepText">Select your step :</option><span id="step"></span></select>
+            <select class="step" required id="stepList"><option disabled selected data-i18n="selectStepText">Select your step :</option><span id="step"><option value="1"><span data-i18n="stepText">Step</span> 1</option><option value="2"><span data-i18n="stepText">Step</span> 2</option><option value="3"><span data-i18n="stepText">Step</span> 3</option><option value="4"><span data-i18n="stepText">Step</span> 4</option><option value="5"><span data-i18n="stepText">Step</span> 5</option><option value="6"><span data-i18n="stepText">Step</span> 6</option><option value="7"><span data-i18n="stepText">Step</span> 7</option><option value="8"><span data-i18n="stepText">Step</span> 8</option><option value="9"><span data-i18n="stepText">Step</span> 9</option><option value="10"><span data-i18n="stepText">Step</span> 10</option><option value="11"><span data-i18n="stepText">Step</span> 11</option><option value="12"><span data-i18n="stepText">Step</span> 12</option></span></select>
             <div class="satisfaction">
                 <div data-i18n="satisfactionText">Satisfaction (0-100)%</div>
 
@@ -46,8 +46,8 @@
             </div>
 
 
-            <div class="hours"><div><span data-i18n="hoursSpentText">Hours Spent</span><input type="number" id="hoursSpent" placeholder="12" required></div>
-            <div><span data-i18n="hoursCommittedText">Hours Committed</span><input type="number" id="hoursCommitted" placeholder="15" required></div></div>
+            <div class="hours"><div><span data-i18n="hoursSpentText">Hours Spent</span><input type="number" id="hoursSpent" placeholder="12" required min="0" step="0.1"></div>
+            <div><span data-i18n="hoursCommittedText">Hours Committed</span><input type="number" id="hoursCommitted" placeholder="15" required min="0" step="0.5"></div></div>
 
             <div class="datenumber"><div><span data-i18n="reportNumberText">Report Number</span><input id="number" type="number" min="1" placeholder="20" required></div>
             <div><span data-i18n="reportDateText">Report Date</span><input type="text" minlength="10" maxlength="10" id="date" placeholder="1401/01/11" required></div></div>

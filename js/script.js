@@ -380,12 +380,12 @@ document.getElementById("generate").addEventListener("click", (e) => {
     const name = document.getElementById("name").value.trim();
     const coordinator = document.getElementById("coordinator").value.trim();
     const course = document.querySelector('input[name="options"]:checked')?.value || null;
-    const step = document.getElementById("step").value;
+    const step = document.getElementById("stepList").value;
     const satisfaction = document.getElementById("satisfactionValue").value;
     const hoursSpent = document.getElementById("hoursSpent").value;
     const hoursCommitted = document.getElementById("hoursCommitted").value;
-    const reportNumber = document.getElementById("number").value;
-    const reportDate = document.getElementById("date").value;
+    const number = document.getElementById("number").value;
+    const date = document.getElementById("date").value;
     const notesList = notes;
     const postsArray = posts; 
 
@@ -397,13 +397,12 @@ document.getElementById("generate").addEventListener("click", (e) => {
         satisfaction,
         hoursSpent,
         hoursCommitted,
-        reportNumber,
-        reportDate,
+        number,
+        date,
         notes: notesList,
         posts: postsArray
     };
 
     localStorage.setItem("reportData", JSON.stringify(formData));
-    console.log(localStorage.getItem("reportData")); 
 
 });
