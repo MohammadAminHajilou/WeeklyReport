@@ -12,6 +12,7 @@ A lightweight, open-source web tool for generating clean, high-quality PDF inter
 - Bilingual support (English / Persian)
 - Light & Dark modes
 - Responsive for all devices
+- Printable by A4 format
 - Built with Vanilla JavaScript, HTML, and CSS (no frameworks)
 - Reusable and easy to customize
 
