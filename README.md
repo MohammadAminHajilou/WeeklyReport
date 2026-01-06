@@ -1,6 +1,5 @@
 <img width="726" height="513" alt="image" src="https://github.com/user-attachments/assets/938bc2e8-604b-4de7-ad0a-dea8f0e88ca6" />
-
-
+<img width="2600" height="5102" alt="reportgeneratorlightendailydesktop" src="https://github.com/user-attachments/assets/ddc2f2d1-c2a3-4c56-a205-35127ef1c082" /><img width="2600" height="5832" alt="reportgeneratordarkenweeklydesktop" src="https://github.com/user-attachments/assets/70fd29d4-6240-4d58-a699-ed88f8536ca1" />
 
 
 
