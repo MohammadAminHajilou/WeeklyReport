@@ -709,7 +709,7 @@ input:focus {
 
 input[type="text"]::selection {
   background-color: var(--input-color);
-  color: transparent;
+  color: var(--bold-text-color);
 }
 
 input[type="text"]:-webkit-autofill,
