@@ -1,18 +1,18 @@
 :root {
     --background-color: #ffffff;
-    --header-footer-color: #f1f1f1;
+    --header-footer-color: #d1d1d1;
     --main-color: #eaeaea;
     --bold-text-color: #000000;
     --normal-text-color: #333333;
     --input-color: #f5f4f4;
     --active-input-color: #ffffff;
+    --report-color: rgb(255, 255, 255);
     --first-color: #00ddc0;
     --second-color: rgb(142, 0, 185);
     --third-color: rgb(255, 0, 76);
     --fourth-color: rgb(0, 255, 115);
     --fifth-color : rgb(251, 255, 0);
     --sixth-color : rgb(57, 0, 189);
-
     --box-shadow: 0px 4px 10px rgba(0,0,0.3);
     --box-shadow-hover: 0px 4px 10px rgba(0,0,0.5);
 }

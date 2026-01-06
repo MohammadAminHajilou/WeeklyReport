@@ -6,10 +6,12 @@
     <title>PDF</title>
     <link rel="stylesheet" href="css/result.css">
     <link rel="icon" href="images/icons/CSInternshipFavicon.png">
+    <style id="font"></style>
+    <link rel="stylesheet" href="css/light.css" id="themeStyle">
 </head>
 <body>
 
-    <div style="background-color: white; position: fixed; width: 100vw; height: 100vh; font-size: 1.5rem; font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-align: center; padding: 20px;">Please wait for download...</div>
+    <div style="display: none;background-color: white; position: fixed; width: 100vw; height: 100vh; font-size: 1.5rem; font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-align: center; padding: 20px;">Please wait for download...</div>
 
     <div id="report">
 
@@ -18,20 +20,20 @@
             
         </div>
         <div class="reportLeft">
-            <div class="leftTop"><div><span>Date</span>:&nbsp;<span id="date"></span></div><div><span>Report</span>:&nbsp; <span id="number"></span></div></div>
-            <div class="leftTitle"><span>CS Internship</span> &nbsp;-&nbsp; <span id="course"></span>&nbsp;-&nbsp;Step&nbsp;<span id="step"></span></div>
-            <div class="leftNames"><div><span>Name</span>: <span id="name"></span></div><div><span>Coordinator</span>: <span id="coordinator"></span></div></div>
+            <div class="leftTop"><div><span data-i18n="dateText">Date</span>:&nbsp;<span id="date"></span></div><div><span id="reportType"><span data-i18n="reportText">Report</span>&nbsp;<span id="type"></span></span>:&nbsp; <span id="number"></span></div></div>
+            <div class="leftTitle"><span>CS Internship</span> &nbsp;-&nbsp; <span id="course"></span>&nbsp;-&nbsp;<span data-i18n="stepText">Step</span>&nbsp;<span id="step"></span></div>
+            <div class="leftNames"><div><span data-i18n="fullNameText">Name</span>: <span id="name"></span></div><div><span data-i18n="coordinatorText">Coordinator</span>: <span id="coordinator"></span></div></div>
             <div class="leftGradients">
                 <div class="hours">
                     <div class="gradientText">
-                        <div><span>Hours Spent</span></div>
-                        <div><div id="hoursSpent"></div><div>—</div><div id="hoursCommitted"></div></div>
+                        <div><span data-i18n="hoursSpentText" class="hoursSpentText">Hours Spent</span></div>
+                        <div><div id="hoursSpent"></div><div id="underline">—</div><div id="hoursCommitted"></div></div>
                     </div>
-                    <div class="gradient"><div id="gradientHours"></div></div>
+                    <div class="gradient gradientHours"><div id="gradientHours"></div></div>
                 </div>
                 <div class="satisfaction">
                     <div class="gradientText">
-                        <div><span>Satisfaction</span></div>
+                        <div><span data-i18n="satisfactionText">Satisfaction</span></div>
                         <div><span id="satisfaction"></span>%</div>
                     </div>
                     <div class="gradient"><div id="gradientSatisfaction"></div></div>
@@ -41,11 +43,11 @@
 
                 <table>
                     <thead>
-                        <td>Title</td>
+                        <td data-i18n="titleText">Title</td>
                         <td><img src="images/icons/telegram.svg" alt="Telegram"></td>
                         <td><img src="images/icons/twitter.svg" alt="Twitter"></td>
                         <td><img src="images/icons/linkedin.svg" alt="LinkedIn"></td>
-                        <td>Date</td>
+                        <td data-i18n="dateText">Date</td>
                     </thead>
                     <tbody id="posts">
 
@@ -55,9 +57,9 @@
         </div>
         <hr>
         <div class="reportRight">
-            <div class="rightLogos"><img src="images/icons/CSInternshipLogo.png" alt="CS - Internship"><div><img src="images/icons/github.svg" alt="GitHub"><span><a href="https://github.com/cs-internship/">github.com/cs-internship</a></span></div></div>
+            <div class="rightLogos"><img src="images/icons/CSInternshipLogo.png" alt="CS Internship"><div id="github"><img src="images/icons/github.svg" alt="GitHub"><span><a href="https://github.com/cs-internship/">github.com/cs-internship</a></span></div></div>
 
-            <div class="rightNotesTitle"><span>Notes</span></div>
+            <div class="rightNotesTitle"><span data-i18n="notesText">Notes</span></div>
             <div class="rightNotes" id="notes"></div>
         </div>
         <div class="reportBottom"></div>

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="pageTitle">Report Generator</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
     <link rel="stylesheet" href="css/dark.css" id="themeStyle">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="icon" type="image/png" sizes="32x32" href="images/icons/CSInternshipFavicon.png">
     <style id="font"></style>
 </head>
@@ -16,43 +16,62 @@
             <div class="logoContainer"><img src="images/icons/CSInternshipLogo.png" alt="CS Internship" class="logo"><div>Internship</div></div>
             <label for="language" class="language" onclick="changeLanguage();"><img src="images/icons/langdark.svg" alt="Language" id="language"><div><span id="en" class="selectedLang">EN</span> / <span id="fa">FA</span></div></label>
             <img src="images/icons/dark.svg" alt="Theme" onclick="changeTheme();" id="themeButton">
-        
         </div>
         <div class="headerGradient"></div>
     </header>
     <main>
         <form action="result.html">
-            <input type="text" placeholder="Full Name" id="name" required data-i18n-placeholder="fulleNameText">
+            
+            <input type="text" placeholder="Full Name" id="name" required data-i18n-placeholder="fullNameText">
+            
             <input type="text" placeholder="Coordinator" id="coordinator" required data-i18n-placeholder="coordinatorText"  >
+            
+            
+            
             <div id="course">
                 <div data-i18n="courseText">Course</div>
                 <label>
-                    <input type="radio" name="options" value="Web" onclick="selectCourse('web');" required><span data-i18n="webText">Web</span>
+                    <input type="radio" name="options" data-i18n-value="webText" onclick="selectCourse('web');" required><span data-i18n="webText">Web</span>
                 </label>
                 <label>
-                    <input type="radio" name="options" value="C#" onclick="selectCourse('csharp');"><span data-i18n="csharpText">C#</span>
+                    <input type="radio" name="options"  data-i18n-value="csharpText" onclick="selectCourse('csharp');"><span data-i18n="csharpText">C#</span>
                 </label>
                 <label>
-                    <input type="radio" name="options" value="Machine Learning" onclick="selectCourse('ml');"><span data-i18n="mlText">Machine Learning</span> 
+                    <input type="radio" name="options" data-i18n-value="mlText" onclick="selectCourse('ml');"><span data-i18n="mlText">Machine Learning</span> 
                 </label>
             </div>
+            
+            
             <select class="step" required id="stepList"><option disabled selected data-i18n="selectStepText">Select your step :</option><span id="step"><option value="1"><span data-i18n="stepText">Step</span> 1</option><option value="2"><span data-i18n="stepText">Step</span> 2</option><option value="3"><span data-i18n="stepText">Step</span> 3</option><option value="4"><span data-i18n="stepText">Step</span> 4</option><option value="5"><span data-i18n="stepText">Step</span> 5</option><option value="6"><span data-i18n="stepText">Step</span> 6</option><option value="7"><span data-i18n="stepText">Step</span> 7</option><option value="8"><span data-i18n="stepText">Step</span> 8</option><option value="9"><span data-i18n="stepText">Step</span> 9</option><option value="10"><span data-i18n="stepText">Step</span> 10</option><option value="11"><span data-i18n="stepText">Step</span> 11</option><option value="12"><span data-i18n="stepText">Step</span> 12</option></span></select>
+            
+
             <div class="satisfaction">
                 <div data-i18n="satisfactionText">Satisfaction (0-100)%</div>
-
                 <input type="number" min="1" max="100" id="satisfactionValue" placeholder="50" oninput="document.getElementById('satisfactionRange').value = this.value" required>
                 <input type="range" min="1" max="100" id="satisfactionRange" oninput="document.getElementById('satisfactionValue').value = this.value">
-
             </div>
 
 
-            <div class="hours"><div><span data-i18n="hoursSpentText">Hours Spent</span><input type="number" id="hoursSpent" placeholder="12" required min="0" step="0.1"></div>
-            <div><span data-i18n="hoursCommittedText">Hours Committed</span><input type="number" id="hoursCommitted" placeholder="15" required min="0" step="0.5"></div></div>
+            <div id="type">
+                <div data-i18n="typeText">Report Type</div>
+                <label>
+                    <input type="radio" name="type" data-i18n-value="dailyText" required><span data-i18n="dailyText">Daily</span>
+                </label>
+                <label>
+                    <input type="radio" name="type" data-i18n-value="weeklyText"><span data-i18n="weeklyText">Weekly</span>
+                </label>
+            </div>
+
+            <div class="hours"><div><span data-i18n="activityHoursText" class="hoursSpentText">Activity Hours</span><input type="number" id="hoursSpent" placeholder="12" required min="0" step="0.1"></div>
+            <div class="hoursCommitted" style="display: none;"><span data-i18n="hoursCommittedText">Hours Committed</span><input type="number" id="hoursCommitted" placeholder="15" min="0" step="0.5"></div></div>
 
             <div class="datenumber"><div><span data-i18n="reportNumberText">Report Number</span><input id="number" type="number" min="1" placeholder="20" required></div>
             <div><span data-i18n="reportDateText">Report Date</span><input type="text" minlength="10" maxlength="10" id="date" placeholder="1401/01/11" required></div></div>
 
+            
+
             <hr>
+
                 <div id="notesContainer">
                     <div class="noteTitle" data-i18n="notesText">Notes</div>
                     <div class="noteWrite" id="noteWrite">

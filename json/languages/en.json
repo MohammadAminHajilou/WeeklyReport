@@ -1,5 +1,5 @@
 {
-    "fulleNameText": "Full Name",
+    "fullNameText": "Full Name",
     "coordinatorText": "Coordinator",
     "courseText": "Course",
     "webText": "Web",
@@ -8,12 +8,13 @@
     "generateText": "Generate",
     "satisfactionText": "Satisfaction (0-100)%",
     "hoursSpentText": "Hours Spent",
+    "activityHoursText" : "Activity Hours",
     "hoursCommittedText": "Hours Committed",
     "selectStepText": "Select your step :",
     "reportNumberText": "Report Number",
     "reportDateText": "Report Date",
     "stepText": "Step",
-    "footerText": "© 2026 Created by Mohammad Amin Hajilou. All rights reserved.",
+    "footerText": "© 2026 Created by Mohammad Amin Hajilou. <br> All rights reserved.",
     "notesText" : "Notes",
     "writeNotesText" : "Write your note...",
     "postsText" : "Posts",
@@ -21,5 +22,11 @@
     "taskText" : "Task",
     "dateText": "Date",
     "linkText" : "Link",
-    "pageTitle" : "Report Generator"
+    "pageTitle" : "Report Generator",
+    "typeText" : "Report Type",
+    "dailyText" : "Daily",
+    "weeklyText" : "Weekly",
+    "reportText" : "Report"
+
 }
+

@@ -53,9 +53,9 @@ body {
 
 
 
-
-
 header {
+    max-height: 200px;
+    overflow: hidden;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -126,7 +126,7 @@ footer {
 
 .footerGradient , .headerGradient {
     width: 100%;
-    height: 35px;
+    height: 60px;
     pointer-events: none;
 }
 
@@ -135,16 +135,18 @@ footer {
 
 
 .headerGradient {background: linear-gradient(to bottom, var(--header-footer-color), var(--background-color));
-z-index: 10; animation: fadeGradient 1s forwards;}
+ animation: fadeGradient 1s forwards; position: absolute; height: 150px;}
 
 
 
 main {
-    width: 95%;
-    max-width: 1200px;
+    width: 98%;
+    max-width: 1000px;
     background-color: var(--main-color);
     margin: 30px auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     border-radius: 10px;
     padding: 15px;
@@ -163,7 +165,7 @@ form {
     margin: 10px auto;
 }
 
-form input , form select , form button , form option , #course label {
+form input , form select , form button , form option , #course label , #type label{
     border-radius: 10px;
     width: 100%;
     padding: 5px;
@@ -187,27 +189,60 @@ form input[type="radio"] {
 form input[type="range"] {
     box-shadow: none;
 }
+
+
+
+#name , #coordinator {
+    width: 100%;
+    max-width: 425px;
+}
+
 #course {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: auto auto auto;  
+    grid-template-rows: auto auto auto;
     align-items: center;
-    margin: 20px auto;
+    gap: 0px 10px;
+    max-width: 400px;
+    margin: 40px auto auto auto;
+}
+
+
+#type {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr;
+    margin: 40px auto;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 #course div {
     margin: 0px 0px 10px 0px;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: 1.6rem;
     grid-column: 1 / span 3; 
     grid-row: 1; 
 }
-
-#course label {
+#type div {
+    margin: 0px 0px 10px 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.6rem;
+    grid-column: 1 / span 2; 
+    grid-row: 1; 
+}
+#course label , #type label {
     cursor: pointer;
-    width: auto;
-    margin: 0px 5px;
-
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px auto;
 }
 
 
@@ -216,11 +251,12 @@ form input[type="range"] {
 .satisfaction {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: auto auto;
     grid-template-rows: auto auto;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
-    margin: 25px auto;
+    margin: 25px auto 35px auto;
+
 }
 .satisfaction div {
     width: 100%;
@@ -244,12 +280,13 @@ form input[type="range"] {
 
 
 .hours , .datenumber {
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
+    flex-direction: 100%;
     justify-content: center;
     align-items: flex-end;
     width: 100%;
     margin: 20px auto;
+    gap: 40px;
 }
 
 .hours div , .datenumber div {
@@ -260,27 +297,35 @@ form input[type="range"] {
     align-items: center;
     text-align: center;
     justify-content: center;
-    width: 100%;
+    height: 100%;
 }
 
 .hours input , .datenumber input {
-    max-width: 80px;
+    margin-top: auto;
+    max-width: 130px;
     box-shadow: 0px 4px 10px rgba(255, 3, 141, 0.7);;
 }
 
-#date  {
-    max-width: 150px;
-}
+
+
+
 #generate {
+    border-radius: 15px;
     width: 80%;
     font-size: 2rem;
     cursor: pointer;
     padding: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    color: var(--first-color);
+    box-shadow: none;
+    text-shadow: 1px 2px 2px #333333;
+    color: var(--fourth-color);
     margin: 75px auto 10px auto;
-    background-image: linear-gradient(to right , var(--active-input-color), var(--second-color),var(--second-color) , var(--active-input-color));
-    
+    box-shadow: 0px 0px 10px var(--first-color);
+    background-image: linear-gradient(to right , var(--first-color), var(--second-color),var(--second-color) , var(--first-color));    
+}
+
+#generate:hover {
+    box-shadow: 0px 0px 14px var(--first-color);
+
 }
 
 
@@ -292,8 +337,7 @@ form input[type="range"] {
 
 
 
-/* مخفی کردن رادیو */
-#course input[type="radio"] {
+input[type="radio"] {
     appearance: none;
     width: 16px;
     height: 16px;
@@ -303,39 +347,31 @@ form input[type="range"] {
     cursor: pointer;
 }
 
-/* دایره داخلی */
-#course input[type="radio"]::before {
+input[type="radio"]::before {
     content: "";
     position: absolute;
     inset: 3px;
     border-radius: 50%;
     background: transparent;
 }
-
-/* حالت انتخاب */
-#course input[type="radio"]:checked {
+input[type="radio"]:checked {
     border-color: var(--second-color);
     background-color: var(--active-input-color);
 }
 
-#course input[type="radio"]:checked::before {
+input[type="radio"]:checked::before {
     border-color: var(--second-color);
     background-color: var(--second-color);
 
 }
 
-/* افکت انتخاب روی لیبل */
-#course label:has(input:checked) {
+#course label:has(input:checked) , #type label:has(input:checked) {
     background: var(--active-input-color);
     border-color: var(--second-color);
 }
 
-.satisfaction {
-    display: grid;
-    gap: 10px;
-}
 
-/* range پایه */
+
 input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
@@ -343,9 +379,9 @@ input[type="range"] {
     background: linear-gradient(to right, var(--third-color) , var(--second-color) , var(--sixth-color) , var(--first-color) , var(--fourth-color));
     border-radius: 999px;
     cursor: pointer;
+
 }
 
-/* thumb کروم */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 18px;
@@ -356,7 +392,6 @@ input[type="range"]::-webkit-slider-thumb {
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* thumb فایرفاکس */
 input[type="range"]::-moz-range-thumb {
     width: 18px;
     height: 18px;
@@ -369,6 +404,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 .step {
+    max-width: 400px;
     width: 100%;
     padding: 10px 14px;
     font-size: 1.3rem;
@@ -385,6 +421,7 @@ input[type="range"]::-moz-range-thumb {
         calc(100% - 12px) calc(50% - 3px);
     background-size: 6px 6px;
     background-repeat: no-repeat;
+    margin: 0px auto 40px auto;
 }
 
 
@@ -409,13 +446,21 @@ form hr {
 }
 
 
+#course label , .step {
+        box-shadow: 0px 4px 10px rgba(151, 255, 32, 0.6);
+}
 
+#type label {
+    box-shadow: 0px 4px 10px rgba(2, 88, 201, 0.6);
+
+}
 
 #notesContainer , #postsContainer {
     background-color: var(--input-color);
     box-shadow: 0px 4px 10px rgb(251, 255, 0 , 0.5);
     border-radius: 15px;
     width: 100%;
+    overflow: hidden;
 }
 
 #postsContainer {
@@ -655,13 +700,25 @@ transform: none;
 
 
 
+input:focus {
+    background-color: var(--active-input-color);
+}
 
 
 
 
+input[type="text"]::selection {
+  background-color: var(--input-color);
+  color: transparent;
+}
 
-
-
+input[type="text"]:-webkit-autofill,
+input[type="text"]:-webkit-autofill:hover,
+input[type="text"]:-webkit-autofill:focus {
+    background-color: var(--input-color);
+  -webkit-text-fill-color: var(--bold-text-color);
+  transition: background-color 9999s ease-in-out 0s;
+}
 
 
 
@@ -685,7 +742,7 @@ transform: none;
 }
 
 @keyframes fadeGradient {
-    0% {transform: translateY(-15px); opacity: 0;}
+    0% {transform: translateY(-200px); opacity: 0;}
     50% {opacity: 1;}
     100% {transform: translateY(0px);}
 }

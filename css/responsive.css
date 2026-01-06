@@ -1,6 +1,18 @@
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+
+
+    main {
+        border-radius: 0px;
+        box-shadow: none;
+        margin: 0px;
+        width: 100%;
+
+    }
+
+    .footerGradient {background: linear-gradient(to top, var(--header-footer-color), var(--main-color));}
 
 
 
+    .headerGradient {background: linear-gradient(to bottom, var(--header-footer-color), var(--main-color));}
 
 }

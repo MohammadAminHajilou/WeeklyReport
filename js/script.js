@@ -64,9 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-
 let currentLang = localStorage.getItem("lang") || "en";
 
 const fontStyle = document.getElementById("font");
@@ -81,7 +78,7 @@ async function applyLanguage(lang , font) {
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.dataset.i18n;
-        if (data[key]) el.textContent = data[key];
+        if (data[key]) el.innerHTML = data[key];
     });
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
@@ -89,8 +86,14 @@ async function applyLanguage(lang , font) {
         if (data[key]) el.placeholder = data[key];
     });
 
-    fontStyle.innerHTML = font;
+    document.querySelectorAll("[data-i18n-value]").forEach(el => {
+        const key = el.dataset.i18nValue;
+        if (data[key] !== undefined) {
+            el.value = data[key];
+        }
+    });
 
+    fontStyle.innerHTML = font;
 
 }
 
@@ -122,6 +125,35 @@ function changeLanguage() {
 
 
 
+
+document
+  .querySelectorAll('input[name="type"]')
+  .forEach(input => {
+    input.addEventListener("change", () => {
+      const checked = document.querySelector('input[name="type"]:checked');
+      if (!checked) return;
+
+      const isDaily = checked.dataset.i18nValue === "dailyText";
+
+      
+      document.getElementById("hoursCommitted").required = isDaily ? false : true;
+      document.querySelector(".hoursCommitted").style.display =
+        isDaily ? "none" : "flex";
+        
+        async function x () {
+            const res =  await fetch(`json/languages/${currentLang}.json`);
+            const data = await res.json();
+            console.log(data);
+
+            document.querySelector(".hoursSpentText").dataset.i18n = isDaily? "activityHoursText" : "hoursSpentText";
+            document.querySelector(".hoursSpentText").innerHTML = isDaily? data["activityHoursText"] : data["hoursSpentText"];
+        }
+
+        x();
+
+    
+    });
+  });
 
 
 
@@ -381,6 +413,7 @@ document.getElementById("generate").addEventListener("click", (e) => {
     const coordinator = document.getElementById("coordinator").value.trim();
     const course = document.querySelector('input[name="options"]:checked')?.value || null;
     const step = document.getElementById("stepList").value;
+    const type = document.querySelector('input[name="type"]:checked')?.value || null;
     const satisfaction = document.getElementById("satisfactionValue").value;
     const hoursSpent = document.getElementById("hoursSpent").value;
     const hoursCommitted = document.getElementById("hoursCommitted").value;
@@ -394,6 +427,7 @@ document.getElementById("generate").addEventListener("click", (e) => {
         coordinator,
         course,
         step,
+        type,
         satisfaction,
         hoursSpent,
         hoursCommitted,
