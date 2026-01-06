@@ -1,5 +1,5 @@
 <img width="726" height="513" alt="image" src="https://github.com/user-attachments/assets/938bc2e8-604b-4de7-ad0a-dea8f0e88ca6" />
-<img width="323" height="600" alt="image" src="https://github.com/user-attachments/assets/24301094-c2a7-4987-b484-b08614e1aee5" /> <img width="351" height="604" alt="image" src="https://github.com/user-attachments/assets/89a3235b-64ae-41b7-baaf-04c9dd6f3f19" />
+
 
 
 
@@ -11,6 +11,9 @@ A lightweight, open-source web tool for generating clean, high-quality PDF inter
 - Fully **client-side** (static, fast, no backend)
 - Bilingual support (**English / Persian**)
 - **Light & Dark** modes
+- **Dual Mode** generation Weekly Report & Daily Report
+- **RTL Persian** output & **LTR English** output.
+- **Themed** Dark & Light **Output**
 - **Responsive** for all devices
 - **Printable** by A4 format
 - Built with **Vanilla JavaScript**, HTML, and CSS (**no frameworks**)
