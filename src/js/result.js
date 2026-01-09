@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-        style.href = savedTheme === 'dark' ? 'css/dark.css' : 'css/light.css';
+        style.href = savedTheme === 'dark' ? 'src/css/dark.css' : 'src/css/light.css';
     }
 
 
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         applyLanguage(currentLang , fontCSS);
 
         async function applyLanguage(lang , font) {
-            const res = await fetch(`json/languages/${lang}.json`);
+            const res = await fetch(`src/json/languages/${lang}.json`);
             const data = await res.json();
 
             document.querySelectorAll("[data-i18n]").forEach(el => {

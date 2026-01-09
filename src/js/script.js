@@ -9,9 +9,9 @@ function changeTheme() {
 
     setTimeout(() => {
         const isDark = button.src.includes('dark.svg'); 
-        button.src = isDark ? 'images/icons/light.svg' : 'images/icons/dark.svg';
-        lang.src = lang.src.includes('dark.svg') ? 'images/icons/langlight.svg' : 'images/icons/langdark.svg';
-        style.href = style.href.includes('dark.css') ? 'css/light.css' : 'css/dark.css';
+        button.src = isDark ? 'src/images/icons/light.svg' : 'src/images/icons/dark.svg';
+        lang.src = lang.src.includes('dark.svg') ? 'src/images/icons/langlight.svg' : 'src/images/icons/langdark.svg';
+        style.href = style.href.includes('dark.css') ? 'src/css/light.css' : 'src/css/dark.css';
 
         localStorage.setItem('theme', style.href.includes('dark.css') ? 'dark' : 'light');
 
@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-        style.href = savedTheme === 'dark' ? 'css/dark.css' : 'css/light.css';
-        button.src = savedTheme === 'dark' ? 'images/icons/dark.svg' : 'images/icons/light.svg';
-        lang.src = savedTheme === 'dark' ? 'images/icons/langdark.svg' : 'images/icons/langlight.svg';
+        style.href = savedTheme === 'dark' ? 'src/css/dark.css' : 'src/css/light.css';
+        button.src = savedTheme === 'dark' ? 'src/images/icons/dark.svg' : 'src/images/icons/light.svg';
+        lang.src = savedTheme === 'dark' ? 'src/images/icons/langdark.svg' : 'src/images/icons/langlight.svg';
     }
 });
 
@@ -73,7 +73,7 @@ applyLanguage(currentLang , fontCSS);
 updateLangUI(currentLang);
 
 async function applyLanguage(lang , font) {
-    const res = await fetch(`json/languages/${lang}.json`);
+    const res = await fetch(`src/json/languages/${lang}.json`);
     const data = await res.json();
 
     document.querySelectorAll("[data-i18n]").forEach(el => {
@@ -141,7 +141,7 @@ document
         isDaily ? "none" : "flex";
         
         async function x () {
-            const res =  await fetch(`json/languages/${currentLang}.json`);
+            const res =  await fetch(`src/json/languages/${currentLang}.json`);
             const data = await res.json();
             console.log(data);
 
