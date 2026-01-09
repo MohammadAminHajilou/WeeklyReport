@@ -37,8 +37,8 @@ body {
 }
 
 #report  {
-    margin:5px auto;
-    width: 293mm;
+    margin:5px;
+    width: 292mm;
     height: 205mm;
     padding: 0px;
     background-color: var(--report-color) ;
