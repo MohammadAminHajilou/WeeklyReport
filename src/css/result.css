@@ -119,7 +119,6 @@ img {
 .rightLogos div a {
   color: #8a17db;
   border-bottom: 1px solid #8a17db;
-  padding-bottom: 0.1em;
   text-decoration: none;
 }
 
@@ -302,7 +301,7 @@ td:first-of-type {
 
 a {
   border-bottom: 1px solid rgb(2, 255, 116);
-  padding-bottom: 0.1em;
+  margin-bottom: 0.1em;
   text-shadow: none;
   color: rgb(2, 255, 116);
   text-decoration: none;
