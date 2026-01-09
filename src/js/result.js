@@ -19,19 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const reportData = JSON.parse(dataString);
         console.log(reportData);
 
-        document.getElementById("name").innerHTML = reportData.name;
-        document.getElementById("coordinator").innerHTML = reportData.coordinator;
-        document.getElementById("type").innerHTML = reportData.type;
-        document.getElementById("course").innerHTML = reportData.course;
-        document.getElementById("step").innerHTML = reportData.step;
-        document.getElementById("satisfaction").innerHTML = reportData.satisfaction;
-        document.getElementById("number").innerHTML = reportData.number;
-        document.getElementById("date").innerHTML = reportData.date;
-        document.getElementById("hoursSpent").innerHTML = reportData.hoursSpent;
-        document.getElementById("hoursCommitted").innerHTML = reportData.hoursCommitted;
-        document.getElementById("gradientSatisfaction").style.width = 100 - reportData.satisfaction + "%";
-        document.getElementById("gradientHours").style.width = ((reportData.hoursCommitted - reportData.hoursSpent) / reportData.hoursCommitted) * 100 + "%";
-       
+        
         const isDaily = reportData.hoursCommitted === "";
         
 
@@ -88,6 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
+
+            
+
+
+
+
+
             const isRTL = ["fa"].includes(lang);
             document.documentElement.dir = isRTL ? "rtl" : "ltr";
             document.getElementById("github").style.flexDirection = isRTL ? "row-reverse" : "row";
@@ -115,6 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             }
+        document.getElementById("name").innerHTML = reportData.name;
+        document.getElementById("coordinator").innerHTML = reportData.coordinator;
+        document.getElementById("type").innerHTML = reportData.type;
+        document.getElementById("course").innerHTML = reportData.course;
+        document.getElementById("step").innerHTML = reportData.step;
+        document.getElementById("satisfaction").innerHTML = reportData.satisfaction;
+        document.getElementById("number").innerHTML = reportData.number;
+        document.getElementById("date").innerHTML = reportData.date;
+        document.getElementById("hoursSpent").innerHTML = reportData.hoursSpent;
+        document.getElementById("hoursCommitted").innerHTML = reportData.hoursCommitted;
+        document.getElementById("gradientSatisfaction").style.width = 100 - reportData.satisfaction + "%";
+        document.getElementById("gradientHours").style.width = ((reportData.hoursCommitted - reportData.hoursSpent) / reportData.hoursCommitted) * 100 + "%";
+       
           
             const report = document.getElementById("report");
             const reportName = `${data.reportText} ${reportData.type} ${reportData.number} - ${reportData.name} - ${reportData.course} - ${data.stepText} ${reportData.step}`;

@@ -159,7 +159,8 @@ img {
   align-items: center;
   justify-content: space-between;
   font-size: 0.8rem;
-  width: 100%;
+  width: 98%;
+  margin: 0px auto;
   height: 5%;
   color: var(--normal-text-color);
 }
